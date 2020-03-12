@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+using NavGame.Core;
 
 namespace NavGame.Managers
 {
-    public class PlayerManager : MonoBehaviour
+    public class PlayerManager : TouchableGameObject
     {
         public static PlayerManager instance;
 

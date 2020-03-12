@@ -16,7 +16,7 @@ namespace NavGame.Core
 
         protected virtual void OnDrawGizmosSelected()
         {
-            Gizmos.color = Color.yellow;
+            Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(transform.position, contactRadius);
         }
     }
