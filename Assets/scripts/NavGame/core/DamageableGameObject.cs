@@ -8,7 +8,7 @@ namespace NavGame.Core
     {
         public int currentHealth;
         public Stats stats;
-        public OnHealthChangedEvent OnHealthChanged;
+        public OnHealthChangedEvent  onHealthChanged;
         public OnDiedEvent onDied;
 
         protected virtual void Awake()
@@ -22,9 +22,9 @@ namespace NavGame.Core
             amount = Mathf.Clamp(amount, 1, stats.maxHealth);
 
             currentHealth -= amount;
-            if (OnHealthChanged != null)
+            if (onHealthChanged != null)
             {
-                OnHealthChanged (stats.maxHealth, currentHealth);
+                onHealthChanged (stats.maxHealth, currentHealth);
             }
 
             if (currentHealth <= 0)
