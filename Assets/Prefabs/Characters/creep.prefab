@@ -28,7 +28,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2691723506626835032}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2691723506512018297
 GameObject:
@@ -57,11 +57,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2691723506512018297}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.01, y: 0.14100003, z: 0.5}
-  m_LocalScale: {x: 0.49999997, y: 0.15, z: 0.49999997}
+  m_LocalPosition: {x: 0.045999527, y: 1.2820001, z: 0.3000002}
+  m_LocalScale: {x: 0.29999998, y: 0.3, z: 0.29999998}
   m_Children: []
-  m_Father: {fileID: 2691723508122127298}
-  m_RootOrder: 0
+  m_Father: {fileID: 2691723506626835032}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2691723506512018301
 MeshFilter:
@@ -133,7 +133,8 @@ GameObject:
   - component: {fileID: 2691723506626835031}
   - component: {fileID: 2691723506626835030}
   - component: {fileID: 2691723506626835033}
-  - component: {fileID: 2483729762730466764}
+  - component: {fileID: 114883598463692472}
+  - component: {fileID: 114671137855837816}
   m_Layer: 0
   m_Name: creep
   m_TagString: Untagged
@@ -153,6 +154,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2691723508122127298}
+  - {fileID: 2691723506512018298}
   - {fileID: 5044945872487141211}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -208,13 +210,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   contactRadius: 0.83
-  currentHealth: 0
-  stats:
-    maxHealth: 100
+  ofenseStats:
     damage: 10
-    armor: 1
     attackSpeed: 1
---- !u!114 &2483729762730466764
+--- !u!114 &114883598463692472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2691723506626835029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b171d64d006424b856675a2811eb4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  contactRadius: 0.5
+  currentHealth: 0
+  defenseStats:
+    maxHealth: 100
+    armor: 1
+--- !u!114 &114671137855837816
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -257,8 +273,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.04, y: 1, z: 0}
   m_LocalScale: {x: 0.6, y: 2, z: 0.6}
-  m_Children:
-  - {fileID: 2691723506512018298}
+  m_Children: []
   m_Father: {fileID: 2691723506626835032}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
