@@ -8,8 +8,8 @@ namespace NavGame.Core
 
     public class CombatGameObject : DamageableGameObject 
     {
+        public OfenseStats ofenseStats;
         float cooldown = 0f;
-
         public  OnAttckHitEvent onAttackHit;
    
         protected virtual void Update()
@@ -20,8 +20,8 @@ namespace NavGame.Core
         {
             if (cooldown <= 0f)
             {
-                cooldown = 1f/ stats.attackSpeed;
-                target.TakeDamage(stats.damage);
+                cooldown = 1f/ ofenseStats.attackSpeed;
+                target.TakeDamage(ofenseStats.damage);
                 if (onAttackHit !=null)
                 {
                     onAttackHit(target.transform.position);
