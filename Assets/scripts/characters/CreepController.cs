@@ -10,7 +10,7 @@ public class CreepController : AttackGameObject {
     DamageableGameObject finalTarget;
     protected override void Awake () 
     {
-
+        base.Awake();
         GameObject obj = GameObject.FindWithTag ("Finish");
         if (obj != null) 
         {
