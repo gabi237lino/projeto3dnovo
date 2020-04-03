@@ -1,50 +1,80 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using NavGame.Managers;
 using UnityEngine;
 using UnityEngine.AI;
-using NavGame.Managers;
 
 namespace NavGame.Core 
 {
-
-    [RequireComponent(typeof(NavMeshAgent))]
+    [RequireComponent (typeof (NavMeshAgent))]
     public class AttackGameObject : TouchableGameObject 
     {
         public OfenseStats ofenseStats;
+        public string[] enemyLayers;
+
+        [SerializeField]
+
+        protected List<DamageableGameObject> enemiesToAttack = new List<DamageableGameObject>();
+
         protected NavMeshAgent agent;
         float cooldown = 0f;
-        public  OnAttckHitEvent onAttackHit;
-        protected virtual void Awake()
+        LayerMask enemyMask;
+
+        public OnAttckHitEvent onAttackHit;
+        protected virtual void Awake () 
         {
-              agent = GetComponent<NavMeshAgent>();
+            agent = GetComponent<NavMeshAgent> ();
+            enemyMask = LayerMask.GetMask (enemyLayers);
         }
-   
-        protected virtual void Update()
+
+        protected virtual void Update () 
         {
-            DecreaseAttackCooldown();
+            DecreaseAttackCooldown ();
         }
-        public void AttackOnCooldown(DamageableGameObject target)
+        public void AttackOnCooldown (DamageableGameObject target) 
         {
-            if (cooldown <= 0f)
+            if (cooldown <= 0f) 
             {
-                cooldown = 1f/ ofenseStats.attackSpeed;
-                target.TakeDamage(ofenseStats.damage);
-                if (onAttackHit !=null)
+                cooldown = 1f / ofenseStats.attackSpeed;
+                target.TakeDamage (ofenseStats.damage);
+                if (onAttackHit != null) 
                 {
-                    onAttackHit(target.transform.position);
+                    onAttackHit (target.transform.position);
                 }
             }
         }
-        void DecreaseAttackCooldown()
+        void DecreaseAttackCooldown () 
         {
-            if (cooldown == 0f)
+            if (cooldown == 0f) 
             {
                 return;
             }
             cooldown = cooldown - Time.deltaTime;
-            if (cooldown < 0f)
+            if (cooldown < 0f) 
             {
                 cooldown = 0f;
+            }
+
+        }
+        void OnTriggerEnter (Collider other) 
+        { 
+            if (enemyMask.Contains(other.gameObject.layer))
+            {
+               DamageableGameObject obj = other.transform.parent.GetComponent<DamageableGameObject>();
+               if (!enemiesToAttack.Contains(obj))
+               {
+                    enemiesToAttack.Add(obj);
+                    obj.onDied += () => {enemiesToAttack.Remove(obj); };
+               }
+            }
+        }
+
+        void OnTriggerExit (Collider other) 
+        { 
+            if (enemyMask.Contains(other.gameObject.layer))
+            {
+               DamageableGameObject obj = other.transform.parent.GetComponent<DamageableGameObject>();
+              enemiesToAttack.Remove(obj);
             }
         }
     }
