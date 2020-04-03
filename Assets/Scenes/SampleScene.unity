@@ -438,6 +438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30b171d64d006424b856675a2811eb4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  angularSpeed: 6
   contactRadius: 1.2
   currentHealth: 0
   defenseStats:
@@ -808,6 +809,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6a974dd6e85330469ffde2504b2b5fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  angularSpeed: 6
   contactRadius: 0.63
 --- !u!23 &1217819566
 MeshRenderer:
@@ -1161,6 +1163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23a870504c602f94aa9485427a7adb13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  angularSpeed: 6
   contactRadius: 0.5
 --- !u!4 &1956357552
 Transform:
@@ -1565,10 +1568,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f77a31ef9d82b474881554e29b08c1aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  angularSpeed: 6
   contactRadius: 6
   ofenseStats:
     damage: 10
     attackSpeed: 1
+  attackRange: 4
   enemyLayers:
   - Creep
   enemiesToAttack: []
@@ -1689,6 +1694,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30b171d64d006424b856675a2811eb4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  angularSpeed: 6
   contactRadius: 0.5
   currentHealth: 0
   defenseStats:
