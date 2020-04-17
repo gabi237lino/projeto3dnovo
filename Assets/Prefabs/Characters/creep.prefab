@@ -171,7 +171,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.36
-  m_Speed: 3.5
+  m_Speed: 5
   m_Acceleration: 10131.32
   avoidancePriority: 50
   m_AngularSpeed: 2231
@@ -195,12 +195,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b668cecddc583eb4083f58f1d5936c21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  angularSpeed: 6
   contactRadius: 0.83
   ofenseStats:
     damage: 10
     attackSpeed: 1
+  attackRange: 4
   enemyLayers:
   - Infantry
+  enemiesToAttack: []
 --- !u!114 &114883598463692472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,8 +216,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30b171d64d006424b856675a2811eb4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  angularSpeed: 6
   contactRadius: 0.5
   currentHealth: 0
+  damageTransform: {fileID: 0}
   defenseStats:
     maxHealth: 100
     armor: 1
