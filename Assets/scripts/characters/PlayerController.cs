@@ -11,20 +11,13 @@ namespace NavGame.Core
         NavMeshAgent agent;
         Camera cam;
         public LayerMask walkableLayer;
-        public GameObject prefab;
-
+    
         DamageableGameObject finalTarget;
 
         void Awake () 
         {
             agent = GetComponent<NavMeshAgent> ();
             cam = Camera.main;
-
-            GameObject obj = GameObject.FindWithTag ("Finish");
-            DamageableGameObject dgo = obj.GetComponent<DamageableGameObject> ();
-            GameObject Projectile = Instantiate (prefab, transform.position, Quaternion.identity) as GameObject;
-            ProjectileController controller = Projectile.GetComponent<ProjectileController> ();
-            controller.Init (dgo, 20);
         }
 
         void Update () {
