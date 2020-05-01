@@ -11,6 +11,7 @@ namespace NavGame.Core
         NavMeshAgent agent;
         Camera cam;
         public LayerMask walkableLayer;
+        public LayerMask collectibleLayer;
     
         DamageableGameObject finalTarget;
 
@@ -20,7 +21,8 @@ namespace NavGame.Core
             cam = Camera.main;
         }
 
-        void Update () {
+        void Update ()
+         {
             if (Input.GetMouseButtonDown (1)) 
             {
                 Ray ray = cam.ScreenPointToRay (Input.mousePosition);
@@ -29,7 +31,14 @@ namespace NavGame.Core
                 {
                     agent.SetDestination (hit.point);
                 }
+
+                if (Physics.Raycast (ray, out hit, Mathf.Infinity, collectibleLayer)) 
+                {
+                    Debug.Log("Collectible: " + hit.collider.name);
+                    agent.SetDestination (hit.point);
+                }
             }
         }
+
     }
 }
