@@ -21,11 +21,10 @@ namespace NavGame.Core
             cam = Camera.main;
 
             GameObject obj = GameObject.FindWithTag ("Finish");
-            
             DamageableGameObject dgo = obj.GetComponent<DamageableGameObject> ();
             GameObject Projectile = Instantiate (prefab, transform.position, Quaternion.identity) as GameObject;
             ProjectileController controller = Projectile.GetComponent<ProjectileController> ();
-            controller.Init (dgo);
+            controller.Init (dgo, 20);
         }
 
         void Update () {
