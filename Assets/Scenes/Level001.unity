@@ -1423,7 +1423,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1750139915}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c55ca0f34ad8a4c42abbbe0f33710562, type: 3}
+  m_Script: {fileID: 11500000, guid: 401b46ba3be95c945832992534a95762, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   angularSpeed: 6
