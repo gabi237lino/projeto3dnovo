@@ -220,7 +220,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 175549050}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Nexus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -253,7 +253,7 @@ GameObject:
   - component: {fileID: 312262602}
   - component: {fileID: 312262601}
   - component: {fileID: 312262600}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -344,7 +344,7 @@ GameObject:
   - component: {fileID: 336428505}
   - component: {fileID: 336428504}
   - component: {fileID: 336428506}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -419,6 +419,9 @@ MonoBehaviour:
   walkableLayer:
     serializedVersion: 2
     m_Bits: 512
+  collectibleLayer:
+    serializedVersion: 2
+    m_Bits: 8192
 --- !u!1 &377991625
 GameObject:
   m_ObjectHideFlags: 0
@@ -433,7 +436,7 @@ GameObject:
   - component: {fileID: 377991627}
   - component: {fileID: 377991630}
   - component: {fileID: 377991631}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Nexus
   m_TagString: Finish
   m_Icon: {fileID: 0}
@@ -633,7 +636,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 475556931}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: DamagePosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -868,7 +871,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 772246680}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: spawn01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -899,7 +902,8 @@ GameObject:
   m_Component:
   - component: {fileID: 777411367}
   - component: {fileID: 777411368}
-  m_Layer: 0
+  - component: {fileID: 777411369}
+  m_Layer: 13
   m_Name: Coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -914,7 +918,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 777411366}
   m_LocalRotation: {x: 0, y: 0.008726558, z: 0, w: 0.999962}
-  m_LocalPosition: {x: 27.9, y: 1, z: 19.7}
+  m_LocalPosition: {x: 2.92, y: 1.59, z: 19.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1282785514}
@@ -934,6 +938,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &777411369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777411366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6978dc522179414e804acd67ffd0354, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  angularSpeed: 6
+  contactRadius: 0.5
+  amout: 1
+  pickupSound: coin-pickup
 --- !u!1 &1173230589
 GameObject:
   m_ObjectHideFlags: 0
@@ -943,7 +963,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1173230590}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: spawnpoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -977,7 +997,7 @@ GameObject:
   - component: {fileID: 1217819567}
   - component: {fileID: 1217819566}
   - component: {fileID: 1217819565}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1070,7 +1090,7 @@ GameObject:
   - component: {fileID: 1282785517}
   - component: {fileID: 1282785516}
   - component: {fileID: 1282785515}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1085,7 +1105,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1282785513}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 0.2, z: 1}
   m_Children: []
   m_Father: {fileID: 777411367}
@@ -1121,7 +1141,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 4bdc8a887612c6c4d87b4eb98d84a629, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1161,7 +1181,7 @@ GameObject:
   - component: {fileID: 1326092107}
   - component: {fileID: 1326092106}
   - component: {fileID: 1326092105}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: NexusGraphic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1249,7 +1269,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1336944575}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: environment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1892,7 +1912,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2139809716}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: HealthPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}

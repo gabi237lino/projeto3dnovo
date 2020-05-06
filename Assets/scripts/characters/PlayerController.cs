@@ -6,14 +6,13 @@ using UnityEngine.AI;
 namespace NavGame.Core 
 {
 
-    public class PlayerController : MonoBehaviour 
+    public class PlayerController : TouchableGameObject 
     {
         NavMeshAgent agent;
         Camera cam;
         public LayerMask walkableLayer;
         public LayerMask collectibleLayer;
-    
-        DamageableGameObject finalTarget;
+        CollectibleGameObject pickupTarget;
 
         void Awake () 
         {
@@ -21,12 +20,19 @@ namespace NavGame.Core
             cam = Camera.main;
         }
 
-        void Update ()
-         {
+        void Update () 
+        {
+            ProcessInput ();
+            UpdateCollect();
+        }
+        void ProcessInput () 
+        {
+
             if (Input.GetMouseButtonDown (1)) 
             {
                 Ray ray = cam.ScreenPointToRay (Input.mousePosition);
                 RaycastHit hit;
+
                 if (Physics.Raycast (ray, out hit, Mathf.Infinity, walkableLayer)) 
                 {
                     agent.SetDestination (hit.point);
@@ -34,11 +40,26 @@ namespace NavGame.Core
 
                 if (Physics.Raycast (ray, out hit, Mathf.Infinity, collectibleLayer)) 
                 {
-                    Debug.Log("Collectible: " + hit.collider.name);
+                    pickupTarget = hit.collider.gameObject.GetComponent<CollectibleGameObject>();
+                    Debug.Log ("Collectible: " + hit.collider.name);
                     agent.SetDestination (hit.point);
+                } else 
+                {
+                    pickupTarget = null;
                 }
             }
         }
-
+        void UpdateCollect()
+        {
+            if (pickupTarget != null)
+            {
+                if (IsInTouch(pickupTarget))
+                {
+                    pickupTarget.Pickup();
+                }
+            }
+        }
     }
 }
+
+        
