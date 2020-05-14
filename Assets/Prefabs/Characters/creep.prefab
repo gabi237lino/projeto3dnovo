@@ -233,6 +233,8 @@ MonoBehaviour:
     damage: 5
     attackSpeed: 1
   attackRange: 4
+  attackDelay: 0.5
+  castTransform: {fileID: 0}
   enemyLayers:
   - Infantry
   enemiesToAttack: []
@@ -253,7 +255,7 @@ MonoBehaviour:
   currentHealth: 0
   damageTransform: {fileID: 2998667624470084402}
   defenseStats:
-    maxHealth: 100
+    maxHealth: 115
     armor: 1
 --- !u!114 &114671137855837816
 MonoBehaviour:
