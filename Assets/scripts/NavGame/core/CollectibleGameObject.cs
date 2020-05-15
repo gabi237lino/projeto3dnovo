@@ -6,7 +6,7 @@ namespace NavGame.Core
 {
     public class CollectibleGameObject : TouchableGameObject 
     {
-        public int amout = 1;
+        public int amount = 1;
 
         public virtual void Pickup()
         {
