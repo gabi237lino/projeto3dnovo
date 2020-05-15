@@ -3454,7 +3454,7 @@ MonoBehaviour:
     type: 3}
   badWaves: 3
   monstersPerWave: 2
-  waitTimeFirstWave: 2
+  waitTimeFirstWave: 5
   waitTimeBetweenWaves: 4
 --- !u!114 &1956357554
 MonoBehaviour:
@@ -3473,6 +3473,7 @@ MonoBehaviour:
   errorTime: 1.5
   coinText: {fileID: 242186480}
   waveCountText: {fileID: 1157629607}
+  WaveCountdownText: {fileID: 504788798}
   cooldownObjects:
   - {fileID: 1164270925}
   - {fileID: 1837823016}
